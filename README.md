@@ -22,4 +22,4 @@ A visual inertial odometry system using Intel RealSense T265 tracking camera and
   <img src="https://github.com/manoharbhat/Drone-Localization-in-GPS-denied-environments/blob/main/t265%20and%20d415.png" width=50% height=50%>
 </p> 
 
-Please refer to Auterion VIO
+## Please refer to Auterion VIO for more information
