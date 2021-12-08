@@ -1,0 +1,59 @@
+<launch>
+
+  <!-- Launch static transform publishers -->
+  
+
+  <node pkg="tf" type="static_transform_publisher" name="tf_baseLink_cameraPose"
+        args="0 0 0 0 0 0 base_link camera_t265_pose_frame 1000"/>
+
+  <!-- Launch static transform publishers -->
+  <node pkg="tf" type="static_transform_publisher" name="tf_odom_cameraOdom"
+        args="0 0 0 0 0 0 odom camera_t265_odom_frame 1000"/>
+
+  <node pkg="tf" type="static_transform_publisher" name="tf_odom_base"
+        args="0 0 0 0 0 0 odom base_link 1000"/>
+
+  <node pkg="tf" type="static_transform_publisher" name="tf_d415_base"
+        args="0 0 0 0 0 0 base_link d415_link 1000"/>
+<!-- All this done for tf tree and check tf tree
+ -->
+  <!-- launch node to throttle images for logging -->
+  <node name="drop_image1" pkg="topic_tools" type="drop" output="screen"
+    args="/camera/fisheye1/image_raw  9 10">
+  </node>
+  <node name="drop_image2" pkg="topic_tools" type="drop" output="screen"
+    args="/camera/fisheye2/image_raw  9 10">
+  </node>
+
+  <!-- Throttle odometry messages to a fixed rate around 25Hz -->
+  <node name="odom_throttler" type="drop" pkg="topic_tools" 
+    args="/camera_t265/odom/sample 7 8 /camera/odom/sample_throttled" >
+  </node>
+
+  <!-- Launch Realsense Camera -->
+  <include file="$(find realsense2_camera)/launch/rs_t265.launch" >
+      <arg name="enable_fisheye1"          value="true"/>
+      <arg name="enable_fisheye2"          value="true"/>
+      <arg name="fisheye_fps"              value="30"/>
+      <arg name="gyro_fps"                 value="200"/>
+      <arg name="accel_fps"                value="62"/>
+      <arg name="enable_gyro"              value="false"/>
+      <arg name="enable_accel"             value="false"/>
+      <arg name="publish_odom_tf"          value="false"/>
+  </include>
+  
+  <!-- Launch d415 camera -->
+  <include file="$(find realsense2_camera)/launch/d415_pointcloud.launch" >
+  </include>
+
+  <env name="ROSCONSOLE_CONFIG_FILE" value="$(find px4_realsense_bridge)/resource/custom_rosconsole.conf"/>
+
+  <arg name="input_topic" default="[/camera_t265/odom/sample]"/> 
+  <!-- This is changed from "camera" to "camera_t265" -->
+
+  <!-- Bridge node -->
+  <node name="px4_realsense_bridge_node" pkg="px4_realsense_bridge" type="px4_realsense_bridge_node" output="screen" >
+    <rosparam param="input_topic" subst_value="True">$(arg input_topic)</rosparam>
+  </node>
+
+</launch>
