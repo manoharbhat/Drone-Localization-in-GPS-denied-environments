@@ -5,20 +5,21 @@ A visual inertial odometry system using Intel RealSense T265 tracking camera and
 ## Co-axial Drone
 
 <p align="left">
-  <img src="https://github.com/manoharbhat/Remote-Controlled-Self-Balancing-Bot/blob/main/images/bot.jpg" width=50% height=50%>
+  <img src="https://github.com/manoharbhat/Drone-Localization-in-GPS-denied-environments/blob/main/coaxial.jpeg" width=50% height=50%>
 </p> 
 
 
 ##  TF frames
 
 <p align="left">
-  <img src="https://github.com/manoharbhat/Remote-Controlled-Self-Balancing-Bot/blob/main/images/bot.jpg" width=50% height=50%>
+  <img src="https://github.com/manoharbhat/Drone-Localization-in-GPS-denied-environments/blob/main/frames.pdf" width=50% height=50%>
 </p> 
 
 
 ## T265 and D415 links
 
 <p align="left">
-  <img src="https://github.com/manoharbhat/Remote-Controlled-Self-Balancing-Bot/blob/main/images/bot.jpg" width=50% height=50%>
+  <img src="https://github.com/manoharbhat/Drone-Localization-in-GPS-denied-environments/blob/main/t265-d415%20fames%20tf.pdf" width=50% height=50%>
 </p> 
 
+Please refer to Auterion VIO
