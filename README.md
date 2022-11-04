@@ -8,6 +8,10 @@ A visual inertial odometry system using Intel RealSense T265 tracking camera and
   <img src="https://github.com/manoharbhat/Drone-Localization-in-GPS-denied-environments/blob/main/coaxial.jpeg" width=50% height=50%>
 </p> 
 
+CLICK THE IMAGE FOR HARDWARE DEMONSTRATION:
+
+
+[![IMAGE_ALT](https://img.youtube.com/vi/rbHBjmynoJA/0.jpg)](https://www.youtube.com/watch?v=rbHBjmynoJA)
 
 ##  TF frames
 
