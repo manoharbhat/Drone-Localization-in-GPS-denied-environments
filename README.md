@@ -5,7 +5,7 @@ A visual inertial odometry system using Intel RealSense T265 tracking camera and
 ## Co-axial Drone
 
 <p align="left">
-  <img src="https://github.com/manoharbhat/Drone-Localization-in-GPS-denied-environments/blob/main/coaxial.jpeg" width=50% height=50%>
+  <img src="https://github.com/manoharbhat/Drone-Localization-in-GPS-denied-environments/blob/main/VIO_drone.png" width=50% height=50%>
 </p> 
 
 CLICK THE IMAGE FOR HARDWARE DEMONSTRATION:
